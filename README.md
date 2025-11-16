@@ -3,6 +3,8 @@ A prototype demonstrating the use of entity tags to perform cache busting when r
 
 Install, build & run the application.
 
+`./mvnw spring-boot:run`
+
 In a new terminal window make an initial CURL request to:
 
 `curl -i http://localhost:8080/items/1 -w '\n'`.
