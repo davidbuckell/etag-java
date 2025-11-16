@@ -13,9 +13,11 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 Date: Sun, 16 Nov 2025 23:00:19 GMT
 ETag: "MS1LZXlib2FyZC00OS45OS0wIG1pbnMgcGFzdCB0aGUgaG91cg=="
-Transfer-Encoding: chunked```
+Transfer-Encoding: chunked
+```
 
 The following script will continuously ping the service every second passing the ETag argument within the `if-none-match` request header.
+
 ```
 #!/bin/bash
 
@@ -58,6 +60,7 @@ Then execute the script passing in the correct ETag value
 Whilst within the same minute, the response status code will be 304 with no response body :
 ```
 2025-11-16 23:00:50 Status: 304
+
 ----------------------------------------
 ```
 
@@ -81,13 +84,17 @@ The following script will continuously ping the service every second passing the
 
 ```
 2025-11-16 23:00:58 Status: 304
+
 ----------------------------------------
 2025-11-16 23:00:59 Status: 304
+
 ----------------------------------------
 2025-11-16 23:01:00 Status: 200 ETag: "MS1LZXlib2FyZC00OS45OS0xIG1pbnMgcGFzdCB0aGUgaG91cg=="
 {"etag":"\"MS1LZXlib2FyZC00OS45OS0xIG1pbnMgcGFzdCB0aGUgaG91cg==\"","id":1,"name":"Keyboard","price":49.99,"updatedAt":"1 mins past the hour"}
+
 ----------------------------------------
 2025-11-16 23:01:02 Status: 200 ETag: "MS1LZXlib2FyZC00OS45OS0xIG1pbnMgcGFzdCB0aGUgaG91cg=="
 {"etag":"\"MS1LZXlib2FyZC00OS45OS0xIG1pbnMgcGFzdCB0aGUgaG91cg==\"","id":1,"name":"Keyboard","price":49.99,"updatedAt":"1 mins past the hour"}
+
 ----------------------------------------
 ```
